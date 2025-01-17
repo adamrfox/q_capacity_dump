@@ -11,12 +11,22 @@ from datetime import datetime, timezone
 from dateutil import tz
 import urllib3
 urllib3.disable_warnings()
-import re
 import pprint
 pp = pprint.PrettyPrinter(indent=4)
 
 def usage():
-    print("Usage Goes here!")
+    sys.stderr.write("Usage: q_capacity_dump.py [-hD] [-c creds] [-t token] [-f token_file [-o output_file] -s start [-e end] -i inverval [-u unit] qumulo\n")
+    sys.stderr.write('-h | --help: Prints usage\n')
+    sys.stderr.write("-D | --DEBUG : Generated info for debugging\n")
+    sys.stderr.write("-c | --creds : Specify credentials format is user[:password]\n")
+    sys.stderr.write("-t | --token : Specify an access token\n")
+    sys.stderr.write("-f | --token-file : Specify is token file [def: .qfds_cred]\n")
+    sys.stderr.write("-s | -- start : Specify start time period. Format: YY-MM-DD[THH:MM]\n")
+    sys.stderr.write("-e | --end : Specify end time.  Format YY-MM-DD[THH:MM].  Default is current time\n")
+    sys.stderr.write("-i | --interval: Specify a time interval [hourly, daily, weekly]\n")
+    sys.stderr.write('-u | --unit : Specify a unit of size in the report. [kb, mb, gb, tb, pb] [def: bytes]\n')
+    sys.stderr.write("-o | --output-file : Specify an output file for the report [def: stdout]\n")
+    sys.stderr.write("qumulo : Name or IP of a Qumulo node\n")
     exit(0)
 
 def dprint(message):
