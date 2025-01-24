@@ -152,7 +152,7 @@ if __name__ == "__main__":
     user = ""
     password = ""
     qumulo = ""
-    RING_SYSTEM = "q_snap_size"
+    RING_SYSTEM = "q_capacity_dump"
     fp = ""
     outfile = ""
     unit = ''
